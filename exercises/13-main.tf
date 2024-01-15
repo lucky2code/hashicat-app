@@ -129,6 +129,11 @@ resource "aws_instance" "hashicat" {
     Environment = "prod"
     Department  = "Hashicat Social"
   }
+  metadata_options {
+    http_tokens = "required"
+  }
+  ebs_optimized = true
+  monitoring = true
 }
 
 # We're using a little trick here so we can run the provisioner without

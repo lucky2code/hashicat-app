@@ -130,6 +130,11 @@ resource "aws_instance" "hashicat" {
   tags = {
     Name = "${var.prefix}-hashicat-instance"
   }
+  metadata_options {
+    http_tokens = "required"
+  }
+  ebs_optimized = true
+  monitoring = true
 }
 
 # We're using a little trick here so we can run the provisioner without
